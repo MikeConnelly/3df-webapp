@@ -23,13 +23,29 @@ class Canvas extends Component {
   }
 
   Sketch = p => {
+    
+    let myfont;
+    p.preload = () => {
+      myfont = p.loadFont('calibri.ttf');
+    }
+
     p.setup = () => {
-      p.createCanvas(1200, 1000, p.WEBGL);
+      p.createCanvas(900, 600, p.WEBGL);
     }
 
     p.draw = () => {
-      p.background(255); // set background to white
+      p.background(232); // set background to white
       p.lights();
+      p.textFont(myfont);
+      p.fill(0);
+      p.textSize(12);
+      p.line(-400, -100, -400, 300);
+      p.line(-400, 0, -390, 0);
+      p.text('0mm', -380, 0);
+      p.line(-400, 94, -390, 94);
+      p.text('25mm', -380, 96);
+      p.line(-400, 188, -390, 188);
+      p.text('50mm', -380, 190);
       //roll += 1;
       //pitch += 1;
       //this.setState({ yAxis: this.state.yAxis + 1 });
@@ -72,8 +88,25 @@ class Canvas extends Component {
   }
 
   render () {
+    const { roll, pitch, yaw, yAxis } = this.state;
     return (
-      <div className="canvas" ref={this.myRef}></div>
+      <div className="canvas-wrapper">
+        <div className="device-data">
+          <div className="data-row">
+            <h5>Roll: {`${roll}`}</h5>
+          </div>
+          <div className="data-row">
+            <h5>Pitch: {`${pitch}`}</h5>
+          </div>
+          <div className="data-row">
+            <h5>Yaw: {`${yaw}`}</h5>
+          </div>
+          <div className="data-row">
+            <h5>Y-Axis: {`${yAxis}`}</h5>
+          </div>
+        </div>
+        <div className="canvas" ref={this.myRef}></div>
+      </div>
     );
   }
 }

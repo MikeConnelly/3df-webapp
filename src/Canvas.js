@@ -1,6 +1,7 @@
 import p5 from 'p5';
 import React, { Component } from 'react';
 
+
 class Canvas extends Component {
 
   constructor(props) {

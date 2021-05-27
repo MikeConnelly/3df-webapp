@@ -1,3 +1,12 @@
+- Website to receive and visualize position data from the Arduino Nano 33 BLE.
+- Node.js server with React frontend.
+- Server API in ./server.js
+- React app components in ./src/
+- run with "npm run build" then "npm start"
+- Arduino visualizer code in ./src/Canvas.js
+
+default react-app readme is below:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
